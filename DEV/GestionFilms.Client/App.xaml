@@ -22,7 +22,7 @@
 
       </ResourceDictionary.MergedDictionaries>
 
-      <converters:BoolToVisibilityConverter       x:Key="BoolToVisibilityConverter"/>
+      <converters:BoolToVisibilityConverter       x:Key="BoolToVisibilitySharedConverter"/>
       <converters:ReferenceToVisibilityConverter  x:Key="ReferenceToVisibilitySharedConverter"/>
 
     </ResourceDictionary>

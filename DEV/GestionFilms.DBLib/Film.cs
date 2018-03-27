@@ -13,7 +13,7 @@ namespace GestionFilms.DBLib
     using System.Collections.ObjectModel;
     using MVVMLib.Core;
     
-    public partial class Film : ObservableObject
+    public class Film : ObservableObject
     {
         private int _Id; public int Id { get { return _Id; } set { SetProperty(nameof(Id), ref _Id, value); } }
         private int _IdGenre; public int IdGenre { get { return _IdGenre; } set { SetProperty(nameof(IdGenre), ref _IdGenre, value); } }

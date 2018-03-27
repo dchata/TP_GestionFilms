@@ -20,20 +20,58 @@ namespace GestionFilms.Client.ViewModels
         #region Properties
         public ViewModelFilmGenre VMFilmGenre { get => _VMFilmGenre; private set => SetProperty(nameof(VMFilmGenre), ref _VMFilmGenre, value); }
         public ObservableCollection<Film> FilteredItemsSource { get => _FilteredItemsSource; private set => SetProperty(nameof(FilteredItemsSource), ref _FilteredItemsSource, value); }
-        public string Search { get => _Search; set => _Search = value; }
+        public string Search { get => _Search; set => SetProperty(nameof(Search), ref _Search, value); }
         #endregion Properties
 
         #region Constructors
         public ViewModelFilms()
         {
             VMFilmGenre = new ViewModelFilmGenre(Entities);
-            FilteredItemsSource = new ObservableCollection<Film>();
+            FilteredItemsSource = new ObservableCollection<Film>(ItemsSource);
             ItemsSource.CollectionChanged += ItemsSource_CollectionChanged;
         }
 
         #endregion Constructors
 
         #region Methods
+        protected override void OnPropertyChanging(string propertyName)
+        {
+            base.OnPropertyChanging(propertyName);
+
+            switch (propertyName)
+            {
+                case nameof(ItemsSource):
+                    if (ItemsSource != null)
+                    {
+                        ItemsSource.CollectionChanged -= ItemsSource_CollectionChanged;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+
+            switch (propertyName)
+            {
+                case nameof(ItemsSource):
+                case nameof(Search):
+                    if (ItemsSource != null)
+                    {
+                        ItemsSource.CollectionChanged -= ItemsSource_CollectionChanged;
+                        ItemsSource.CollectionChanged += ItemsSource_CollectionChanged;
+                        //Si la propriété ItemsSource ou Search changent, on réinitialise FilteredItemsSource
+                        SetFilteredItemsSource();
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+        }
         /// <summary>
         ///     Méthode pour filtrer si un film doit être visible en fonction du texte de recherche.
         /// </summary>
@@ -98,7 +136,7 @@ namespace GestionFilms.Client.ViewModels
             base.AddItem_Execute(parameter);
 
             this.SelectedItem.Name = "Nouveau film";
-            this.SelectedItem.File = "test dc";
+            this.SelectedItem.File = "test dc file";
 
         }
 
