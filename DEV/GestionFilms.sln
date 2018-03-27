@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFilms.DBLib", "Gesti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMLib.Core", "MVVMLib\MVVMLib.Core.csproj", "{4EE5683C-70F5-485D-8030-051DC9D8C9F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMLib.WPF", "MVVLib.WPF\MVVMLib.WPF.csproj", "{DA243FBA-B645-4BFB-AE5B-D800DF79C390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMLib.EF", "MVVMLib.EF\MVVMLib.EF.csproj", "{22E32908-A2F5-413A-B65A-2E2E529857AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,14 @@ Global
 		{4EE5683C-70F5-485D-8030-051DC9D8C9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EE5683C-70F5-485D-8030-051DC9D8C9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EE5683C-70F5-485D-8030-051DC9D8C9F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA243FBA-B645-4BFB-AE5B-D800DF79C390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA243FBA-B645-4BFB-AE5B-D800DF79C390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA243FBA-B645-4BFB-AE5B-D800DF79C390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA243FBA-B645-4BFB-AE5B-D800DF79C390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E32908-A2F5-413A-B65A-2E2E529857AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E32908-A2F5-413A-B65A-2E2E529857AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E32908-A2F5-413A-B65A-2E2E529857AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E32908-A2F5-413A-B65A-2E2E529857AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
