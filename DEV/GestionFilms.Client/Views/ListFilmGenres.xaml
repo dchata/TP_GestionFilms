@@ -3,8 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:MVVMLib.WPF;assembly=MVVMLib.WPF"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:local="clr-namespace:GestionFilms.Client.Views">
-    <Grid>
-            
-    </Grid>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <ListBox  Grid.Row="1" ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" controls:SelectedItemsHelper.SelectedItems="{Binding SelectedItems}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+      <ListBox.ItemsPanel>
+        <ItemsPanelTemplate>
+          <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+      </ListBox.ItemsPanel>
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Visibility="{Binding IsChecked ,ElementName=EditButton ,Converter={StaticResource BoolToVisibilitySharedConverter} ,ConverterParameter=!}">
+              <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Visibility="{Binding IsChecked ,ElementName=EditButton ,Converter={StaticResource BoolToVisibilitySharedConverter}}">
+              <TextBox Text="{Binding Name}"/>
+            </StackPanel>
+
+            <ToggleButton x:Name="EditButton" Grid.Column="1" Content="Modifier">
+              <ToggleButton.LayoutTransform>
+                <RotateTransform Angle="-90"/>
+              </ToggleButton.LayoutTransform>
+            </ToggleButton>
+
+            <Button Grid.Column="2" Content="Supprimer" 
+                    Command="{Binding DataContext.RemoveItemCommand ,RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType={x:Type ListBox}}}"
+                    CommandParameter="{Binding}">
+              <Button.LayoutTransform>
+                <RotateTransform Angle="-90"/>
+              </Button.LayoutTransform>
+            </Button>
+
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </Grid>
 </UserControl>
