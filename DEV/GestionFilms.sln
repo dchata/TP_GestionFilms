@@ -9,7 +9,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GestionFilms.DB", "GestionF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFilms.DBLib", "GestionFilms.DBLib\GestionFilms.DBLib.csproj", "{5213CC99-3F8F-48DB-A4D1-250DBA8ACEB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMLib", "MVVMLib\MVVMLib.csproj", "{4EE5683C-70F5-485D-8030-051DC9D8C9F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMLib.Core", "MVVMLib\MVVMLib.Core.csproj", "{4EE5683C-70F5-485D-8030-051DC9D8C9F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
