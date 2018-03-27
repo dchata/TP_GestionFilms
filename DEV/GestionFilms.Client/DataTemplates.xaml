@@ -9,11 +9,11 @@
   </DataTemplate>
 
   <DataTemplate DataType="{x:Type viewmodels:ViewModelFilms}" x:Key="ViewModelFilmTemplate">
-    <!--<views:ListPeople2/>-->
+    <views:ListFilms/>
   </DataTemplate>
 
   <DataTemplate DataType="{x:Type viewmodels:ViewModelFilmGenre}" x:Key="ViewModelFilmGenreTemplate">
-    <!--<views:ListPersonTypes/>-->
+    <views:ListFilmGenres/>
   </DataTemplate>
 
 

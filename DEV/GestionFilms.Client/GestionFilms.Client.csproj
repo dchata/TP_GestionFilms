@@ -82,6 +82,12 @@
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListFilmGenres.xaml.cs">
+      <DependentUpon>ListFilmGenres.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListFilms.xaml.cs">
+      <DependentUpon>ListFilms.xaml</DependentUpon>
+    </Compile>
     <Page Include="DataTemplates.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +105,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListFilmGenres.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListFilms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

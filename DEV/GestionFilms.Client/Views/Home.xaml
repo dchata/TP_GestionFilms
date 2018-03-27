@@ -13,18 +13,18 @@
       <ColumnDefinition/>
     </Grid.ColumnDefinitions>
 
-    <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+    <Button Grid.Column="0" HorizontalAlignment="Center"  Background="Transparent" VerticalAlignment="Center"
             Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource
                         Mode=FindAncestor, AncestorType=Window}}"
             CommandParameter="{x:Type viewmodels:ViewModelFilms}">
       <fa:ImageAwesome Icon="Film" Height="192" Width="192" Foreground="{StaticResource AccentBaseColorBrush}"/>
     </Button>
 
-    <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+    <Button Grid.Column="1" HorizontalAlignment="Center" Background="Transparent" VerticalAlignment="Center"
             Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource
                         Mode=FindAncestor, AncestorType=Window}}"
             CommandParameter="{x:Type viewmodels:ViewModelFilmGenre}">
-      <fa:ImageAwesome Icon="Gear" Height="192"  Width="192" Foreground="{StaticResource AccentBaseColorBrush}"/>
+      <fa:ImageAwesome Icon="Tags" Height="192"  Width="192" Foreground="{StaticResource AccentBaseColorBrush}"/>
     </Button>
   </Grid>
 </UserControl>
