@@ -10,8 +10,8 @@ namespace GestionFilms.Client
     {
         public MainWindow()
         {
-            DataContext = new ViewModelMain();
             InitializeComponent();
+            DataContext = new ViewModelMain();
         }
     }
 }

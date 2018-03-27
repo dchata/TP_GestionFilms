@@ -74,6 +74,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\ReferenceToVisibilityConverter.cs" />
     <Compile Include="TemplateSelector\ViewModelTemplateSelector.cs" />
     <Compile Include="ViewModels\ViewModelFilmGenre.cs" />
     <Compile Include="ViewModels\ViewModelFilms.cs" />
@@ -145,7 +147,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Converters\" />
     <Folder Include="Styles\" />
   </ItemGroup>
   <ItemGroup>

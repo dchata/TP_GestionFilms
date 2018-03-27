@@ -3,8 +3,79 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:GestionFilms.Client.Views">
-    <Grid>
-            
-    </Grid>
+             xmlns:local="clr-namespace:GestionFilms.Client.Views"
+             xmlns:controls="clr-namespace:MVVMLib.WPF;assembly=MVVMLib.WPF"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls">
+  
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <TextBox mahapps:TextBoxHelper.Watermark="Rechercher un film" Grid.Row="0" Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}"/>
+
+    <ListBox  Grid.Row="1" 
+            ItemsSource="{Binding FilteredItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+           controls:SelectedItemsHelper.SelectedItems="{Binding SelectedItems}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+      
+      <ListBox.ItemsPanel>
+        <ItemsPanelTemplate>
+          <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+      </ListBox.ItemsPanel>
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                        Visibility="{Binding IsChecked
+                                            ,ElementName=EditButton
+                                            ,Converter={StaticResource BoolToVisibilityConverter}
+                                            ,ConverterParameter=!}">
+              <TextBlock Text="{Binding Name}"/>
+              <TextBlock Text="{Binding File}"/>
+              <TextBlock Text="{Binding Genre.Name}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center"                        
+                        Visibility="{Binding IsChecked
+                                            ,ElementName=EditButton
+                                            ,Converter={StaticResource BoolToVisibilityConverter}}">
+              <TextBox Text="{Binding Name}"/>
+              <ComboBox SelectedItem="{Binding Genre}" 
+                      ItemsSource="{Binding DataContext.ViewModelFilmGenre.ItemsSource
+                                        ,RelativeSource=
+                                        {RelativeSource Mode=FindAncestor
+                                                        ,AncestorType={x:Type ListBox}}}"
+                      DisplayMemberPath="Name"/>
+            </StackPanel>
+
+            <ToggleButton x:Name="EditButton" Grid.Column="1" Content="Modifier">
+              <ToggleButton.LayoutTransform>
+                <RotateTransform Angle="-90"/>
+              </ToggleButton.LayoutTransform>
+            </ToggleButton>
+
+            <Button Grid.Column="2" Content="Supprimer" 
+                    Command="{Binding DataContext.RemoveItemCommand
+                                      ,RelativeSource=
+                                        {RelativeSource Mode=FindAncestor
+                                                        ,AncestorType={x:Type ListBox}}}"
+                    CommandParameter="{Binding}">
+              <Button.LayoutTransform>
+                <RotateTransform Angle="-90"/>
+              </Button.LayoutTransform>
+            </Button>
+
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </Grid>
 </UserControl>
