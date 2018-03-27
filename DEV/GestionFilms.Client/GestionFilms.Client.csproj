@@ -124,6 +124,14 @@
       <Project>{5213cc99-3f8f-48db-a4d1-250dba8aceb5}</Project>
       <Name>GestionFilms.DBLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MVVLib.WPF\MVVMLib.WPF.csproj">
+      <Project>{da243fba-b645-4bfb-ae5b-d800df79c390}</Project>
+      <Name>MVVMLib.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVVMLib.EF\MVVMLib.EF.csproj">
+      <Project>{22e32908-a2f5-413a-b65a-2e2e529857ab}</Project>
+      <Name>MVVMLib.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MVVMLib\MVVMLib.Core.csproj">
       <Project>{4ee5683c-70f5-485d-8030-051dc9d8c9f3}</Project>
       <Name>MVVMLib.Core</Name>
