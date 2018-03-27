@@ -10,20 +10,21 @@
 namespace GestionFilms.DBLib
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using MVVMLib.Core;
     
-    public partial class Genre
+    public partial class Genre : ObservableObject
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Genre()
         {
-            this.Films = new HashSet<Film>();
+            this.Films = new ObservableCollection<Film>();
         }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
+        private int _Id; public int Id { get { return _Id; } set { SetProperty(nameof(Id), ref _Id, value); } }
+        private string _Name; public string Name { get { return _Name; } set { SetProperty(nameof(Name), ref _Name, value); } }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Film> Films { get; set; }
+        private ObservableCollection<Film> _Films; public virtual ObservableCollection<Film> Films { get { return _Films; } set { SetProperty(nameof(Films), ref _Films, value); } }
     }
 }

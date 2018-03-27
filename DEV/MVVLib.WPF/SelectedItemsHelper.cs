@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 
-namespace MVVMLib.Controls
+namespace MVVMLib.WPF
 {
     public class SelectedItemsHelper
     {

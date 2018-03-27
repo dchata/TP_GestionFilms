@@ -10,20 +10,21 @@
 namespace GestionFilms.DBLib
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using MVVMLib.Core;
     
-    public partial class Film
+    public partial class Film : ObservableObject
     {
-        public int Id { get; set; }
-        public int IdGenre { get; set; }
-        public string Name { get; set; }
-        public Nullable<System.TimeSpan> Duration { get; set; }
-        public Nullable<System.DateTime> ReleaseDate { get; set; }
-        public Nullable<double> Score { get; set; }
-        public string File { get; set; }
-        public string Tag { get; set; }
-        public Nullable<bool> Watched { get; set; }
+        private int _Id; public int Id { get { return _Id; } set { SetProperty(nameof(Id), ref _Id, value); } }
+        private int _IdGenre; public int IdGenre { get { return _IdGenre; } set { SetProperty(nameof(IdGenre), ref _IdGenre, value); } }
+        private string _Name; public string Name { get { return _Name; } set { SetProperty(nameof(Name), ref _Name, value); } }
+        private Nullable<System.TimeSpan> _Duration; public Nullable<System.TimeSpan> Duration { get { return _Duration; } set { SetProperty(nameof(Duration), ref _Duration, value); } }
+        private Nullable<System.DateTime> _ReleaseDate; public Nullable<System.DateTime> ReleaseDate { get { return _ReleaseDate; } set { SetProperty(nameof(ReleaseDate), ref _ReleaseDate, value); } }
+        private Nullable<double> _Score; public Nullable<double> Score { get { return _Score; } set { SetProperty(nameof(Score), ref _Score, value); } }
+        private string _File; public string File { get { return _File; } set { SetProperty(nameof(File), ref _File, value); } }
+        private string _Tag; public string Tag { get { return _Tag; } set { SetProperty(nameof(Tag), ref _Tag, value); } }
+        private Nullable<bool> _Watched; public Nullable<bool> Watched { get { return _Watched; } set { SetProperty(nameof(Watched), ref _Watched, value); } }
     
-        public virtual Genre Genre { get; set; }
+        private Genre _Genre; public virtual Genre Genre { get { return _Genre; } set { SetProperty(nameof(Genre), ref _Genre, value); } }
     }
 }

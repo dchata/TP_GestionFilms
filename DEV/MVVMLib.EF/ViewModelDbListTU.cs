@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 
-namespace MVVMLib.ViewModels
+namespace MVVMLib.EF
 { 
     public class ViewModelDbList<T, U> : ViewModelDb<T> 
         where T : DbContext, new() 

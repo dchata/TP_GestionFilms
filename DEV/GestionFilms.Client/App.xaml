@@ -8,7 +8,7 @@
     <!-- Permet de fusioner un dictrionnaire de ressource créé dans un fichier externe -->
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-
+        <ResourceDictionary Source="DataTemplates.xaml"/>
         <!-- Resource Dictrionnaries de Mahapps -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />

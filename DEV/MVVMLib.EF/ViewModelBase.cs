@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVVMLib.ViewModels
+namespace MVVMLib.EF
 {
     public class ViewModelBase : ObservableObject
     {

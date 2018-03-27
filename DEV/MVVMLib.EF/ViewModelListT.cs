@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace MVVMLib.ViewModels
+namespace MVVMLib.EF
 {
     /// <summary>
     /// Le type T doit être un ObservableObject et avoir un constructeur vide

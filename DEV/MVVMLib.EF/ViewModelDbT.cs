@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.Windows;
 
-namespace MVVMLib.ViewModels
+namespace MVVMLib.EF
 {
     public class ViewModelDb<T> : ViewModelBase
         where T : DbContext, new()
