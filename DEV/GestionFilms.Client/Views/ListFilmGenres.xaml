@@ -7,12 +7,7 @@
              xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:local="clr-namespace:GestionFilms.Client.Views">
   <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"/>
-      <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
-
-    <ListBox  Grid.Row="1" ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" controls:SelectedItemsHelper.SelectedItems="{Binding SelectedItems}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+    <ListBox  ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" controls:SelectedItemsHelper.SelectedItems="{Binding SelectedItems}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
       <ListBox.ItemsPanel>
         <ItemsPanelTemplate>
