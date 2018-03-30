@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestionFilms.Client.Views"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:controls="clr-namespace:MVVMLib.WPF;assembly=MVVMLib.WPF"
              xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls">
   
@@ -33,28 +34,32 @@
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Visibility="{Binding IsChecked ,ElementName=EditButton ,Converter={StaticResource BoolToVisibilitySharedConverter} ,ConverterParameter=!}">
               <TextBlock Text="{Binding Name}"/>
+              <!--<TextBlock Text="{Binding Duration}"/>
+              <TextBlock Text="{Binding ReleaseDate, StringFormat=dd-MM-yy}"/>
+              <TextBlock Text="{Binding Score}"/>
               <TextBlock Text="{Binding File}"/>
+              <TextBlock Text="{Binding Tag}"/>-->
               <TextBlock Text="{Binding Genre.Name}"/>
+              <TextBlock Text="{Binding Watched}"/>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Visibility="{Binding IsChecked ,ElementName=EditButton ,Converter={StaticResource BoolToVisibilitySharedConverter}}">
-              <TextBox Text="{Binding Name}"/>
-              <TextBox Text="{Binding File}"/>
+              <TextBox Text="{Binding Name}"  mahapps:TextBoxHelper.Watermark="Titre"/>
+              <!--<TextBox Text="{Binding Duration}"  mahapps:TextBoxHelper.Watermark="Durée"/>
+              <TextBlock Text="Date de sortie :"/>
+              <DatePicker SelectedDate="{Binding ReleaseDate}"/>
+              <TextBox Text="{Binding Score}"  mahapps:TextBoxHelper.Watermark="Note"/>
+              <TextBox Text="{Binding File}"  mahapps:TextBoxHelper.Watermark="Fichier"/>
+              <TextBox Text="{Binding Tag}"  mahapps:TextBoxHelper.Watermark="Vignette"/>-->
               <ComboBox SelectedItem="{Binding Genre}" ItemsSource="{Binding DataContext.ViewModelFilmGenre.ItemsSource ,RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType={x:Type ListBox}}}" DisplayMemberPath="Name"/>
             </StackPanel>
 
-            <ToggleButton x:Name="EditButton" Grid.Column="1" Content="Modifier">
-              <ToggleButton.LayoutTransform>
-                <RotateTransform Angle="-90"/>
-              </ToggleButton.LayoutTransform>
+            <ToggleButton x:Name="EditButton" Grid.Column="1">
+              <fa:ImageAwesome Icon="Pencil" Height="12" Foreground="{StaticResource AccentBaseColorBrush}"/>
             </ToggleButton>
 
-            <Button Grid.Column="2" Content="Supprimer" 
-                    Command="{Binding DataContext.RemoveItemCommand ,RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType={x:Type ListBox}}}"
-                    CommandParameter="{Binding}">
-              <Button.LayoutTransform>
-                <RotateTransform Angle="-90"/>
-              </Button.LayoutTransform>
+            <Button Grid.Column="2" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType=ListBox}}" CommandParameter="{Binding}">
+              <fa:ImageAwesome Icon="Trash" Height="12" Foreground="{StaticResource AccentBaseColorBrush}"/>
             </Button>
 
           </Grid>
