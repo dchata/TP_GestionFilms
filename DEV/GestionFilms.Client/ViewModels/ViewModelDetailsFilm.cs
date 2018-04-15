@@ -8,5 +8,8 @@ namespace GestionFilms.Client.ViewModels
 {
     public class ViewModelDetailsFilm : ViewModelFilms
     {
+        #region Constructors
+        public ViewModelDetailsFilm() { }
+        #endregion Constructors
     }
 }

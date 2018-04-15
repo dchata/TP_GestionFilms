@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestionFilms.Client.Views"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:viewmodels="clr-namespace:GestionFilms.Client.ViewModels"
              xmlns:controls="clr-namespace:MVVMLib.WPF;assembly=MVVMLib.WPF"
              xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls">
   
@@ -28,6 +29,7 @@
           <Grid Margin="10">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="Auto"/>
               <ColumnDefinition Width="Auto"/>
               <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
@@ -54,11 +56,18 @@
               <ComboBox SelectedItem="{Binding Genre}" ItemsSource="{Binding DataContext.ViewModelFilmGenre.ItemsSource ,RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType={x:Type ListBox}}}" DisplayMemberPath="Name"/>
             </StackPanel>
 
-            <ToggleButton x:Name="EditButton" Grid.Column="1">
+            <Button Grid.Column="1"  Margin="2"
+              Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource
+                        Mode=FindAncestor, AncestorType=Window}}"
+              CommandParameter="{x:Type viewmodels:ViewModelDetailsFilm}">
+              <fa:ImageAwesome Icon="Eye" Height="12" Foreground="{StaticResource AccentBaseColorBrush}"/>
+            </Button>
+
+            <ToggleButton x:Name="EditButton" Grid.Column="2" Margin="2">
               <fa:ImageAwesome Icon="Pencil" Height="12" Foreground="{StaticResource AccentBaseColorBrush}"/>
             </ToggleButton>
 
-            <Button Grid.Column="2" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType=ListBox}}" CommandParameter="{Binding}">
+            <Button Grid.Column="3"  Margin="2" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType=ListBox}}" CommandParameter="{Binding}">
               <fa:ImageAwesome Icon="Trash" Height="12" Foreground="{StaticResource AccentBaseColorBrush}"/>
             </Button>
 
