@@ -82,13 +82,13 @@
                 </Button>
               </StackPanel>
               <StackPanel HorizontalAlignment="Center" Visibility="{Binding IsChecked ,ElementName=EditButton ,Converter={StaticResource BoolToVisibilitySharedConverter}}">
-                <TextBox Text="{Binding Name}" mahapps:TextBoxHelper.Watermark="Titre"/>
-                <TextBox Text="{Binding Duration}" mahapps:TextBoxHelper.Watermark="Durée"/>
-                <TextBox Text="{Binding ReleaseDate}" mahapps:TextBoxHelper.Watermark="Date de sortie"/>
-                <TextBox Text="{Binding Score}" mahapps:TextBoxHelper.Watermark="Note"/>
-                <TextBox Text="{Binding File}" mahapps:TextBoxHelper.Watermark="Fichier"/>
-                <ComboBox SelectedItem="{Binding Genre}" ItemsSource="{Binding DataContext.ViewModelFilmGenre.ItemsSource ,RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType=Grid}}" DisplayMemberPath="Name"/>
-                <CheckBox IsChecked="{Binding Watched}"/>
+                <TextBox Margin="2" Text="{Binding Name}" mahapps:TextBoxHelper.Watermark="Titre"/>
+                <TextBox Margin="2" Text="{Binding Duration}" mahapps:TextBoxHelper.Watermark="Durée"/>
+                <TextBox Margin="2" Text="{Binding ReleaseDate}" mahapps:TextBoxHelper.Watermark="Date de sortie"/>
+                <TextBox Margin="2" Text="{Binding Score}" mahapps:TextBoxHelper.Watermark="Note"/>
+                <TextBox Margin="2" Text="{Binding File}" mahapps:TextBoxHelper.Watermark="Fichier"/>
+                <ComboBox Margin="2" SelectedItem="{Binding Genre.Name}" ItemsSource="{Binding DataContext.ViewModelFilmGenre.ItemsSource, RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType=Window}}" DisplayMemberPath="Name"/>
+                <CheckBox Margin="2" IsChecked="{Binding Watched}"/>
               </StackPanel>
               <ToggleButton Margin="2" Grid.Row="1" x:Name="EditButton">
                 <fa:ImageAwesome Icon="Pencil" Height="20" Foreground="{StaticResource AccentBaseColorBrush}"/>
