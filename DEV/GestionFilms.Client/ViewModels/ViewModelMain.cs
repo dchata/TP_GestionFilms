@@ -1,10 +1,10 @@
-﻿using MVVMLib.Core;
+﻿using GestionFilms.DBLib;
+using MVVMLib.Core;
 using MVVMLib.EF;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
+using System.Windows.Media;
 
 namespace GestionFilms.Client.ViewModels
 {
@@ -13,6 +13,7 @@ namespace GestionFilms.Client.ViewModels
         #region Fields
         private ViewModelBase _SelectedViewModel;
         private DelegateCommand _NavigateCommand;
+        private DelegateCommand _PlayCommand;
         DelegateCommand _ExitCommand;
         #endregion Fields
 
@@ -20,6 +21,7 @@ namespace GestionFilms.Client.ViewModels
         public ViewModelBase SelectedViewModel { get => _SelectedViewModel; set => SetProperty(nameof(SelectedViewModel), ref _SelectedViewModel, value); }
         public DelegateCommand NavigateCommand => _NavigateCommand;
         public DelegateCommand ExitCommand => _ExitCommand;
+        public DelegateCommand PlayCommand => _PlayCommand;
         #endregion Properties
 
         #region Constructors
@@ -27,12 +29,14 @@ namespace GestionFilms.Client.ViewModels
         {
             SelectedViewModel = new ViewModelHome();
             _NavigateCommand = new DelegateCommand(Navigate_Execute, Navigate_CanExecute);
+            _PlayCommand = new DelegateCommand(Play_Execute, Play_CanExecute);
             _ExitCommand = new DelegateCommand((parameter) => App.Current.Shutdown());
         }
-
         #endregion Constructors
 
         #region Methods
+        #region Navigate
+
         private bool Navigate_CanExecute(object parameter) => parameter is ViewModelBase || (parameter is Type vmType && typeof(ViewModelBase).IsAssignableFrom(vmType));
 
         private void Navigate_Execute(object parameter)
@@ -47,7 +51,39 @@ namespace GestionFilms.Client.ViewModels
                 this.SelectedViewModel = viewModel;
             }
         }
+        #endregion
 
+        #region Play
+        private void Play_Execute(object parameter)
+        {
+            if (parameter is Film film)
+            {
+                using (Process vlc = new Process())
+                {
+                    vlc.StartInfo.FileName = film.File;
+                    vlc.StartInfo.Arguments = "-vvv " + film.File;
+                    vlc.Start();
+                }
+
+                film.Watched = true;
+            }
+        }
+
+        private bool Play_CanExecute(object parameter)
+        {
+            if (parameter is Film film)
+            {
+                if (File.Exists(film.File))
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+        #endregion
+
+        #region AddItem
         protected override void AddItem_Execute(object parameter)
         {
             if (parameter is Type viewModelType &&
@@ -57,6 +93,7 @@ namespace GestionFilms.Client.ViewModels
                 SelectedItem = viewModel;
             }
         }
+        #endregion
         #endregion Methods
     }
 }

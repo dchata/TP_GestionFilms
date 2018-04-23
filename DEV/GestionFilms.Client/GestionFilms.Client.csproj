@@ -77,14 +77,10 @@
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\ReferenceToVisibilityConverter.cs" />
     <Compile Include="TemplateSelector\ViewModelTemplateSelector.cs" />
-    <Compile Include="ViewModels\ViewModelDetailsFilm.cs" />
     <Compile Include="ViewModels\ViewModelFilmGenre.cs" />
     <Compile Include="ViewModels\ViewModelFilms.cs" />
     <Compile Include="ViewModels\ViewModelHome.cs" />
     <Compile Include="ViewModels\ViewModelMain.cs" />
-    <Compile Include="Views\DetailsFilm.xaml.cs">
-      <DependentUpon>DetailsFilm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -110,10 +106,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\DetailsFilm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +166,17 @@
       <Project>{4ee5683c-70f5-485d-8030-051dc9d8c9f3}</Project>
       <Name>MVVMLib.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

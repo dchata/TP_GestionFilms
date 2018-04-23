@@ -12,10 +12,6 @@
     <views:ListFilms/>
   </DataTemplate>
   
-  <DataTemplate DataType="{x:Type viewmodels:ViewModelDetailsFilm}" x:Key="ViewModelDetailsFilmTemplate">
-    <views:DetailsFilm/>
-  </DataTemplate>
-
   <DataTemplate DataType="{x:Type viewmodels:ViewModelFilmGenre}" x:Key="ViewModelFilmGenreTemplate">
     <views:ListFilmGenres/>
   </DataTemplate>
