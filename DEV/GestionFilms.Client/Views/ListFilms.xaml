@@ -76,20 +76,24 @@
                 <TextBlock Margin="2" Text="{Binding Score, StringFormat=Note : {0}}"/>
                 <TextBlock Margin="2" Text="{Binding File, StringFormat=Fichier : {0}}"/>
                 <TextBlock Margin="2" Text="{Binding Genre.Name , StringFormat=Genre : {0}}"/>
-                <CheckBox  Margin="2" IsChecked="{Binding Watched}" IsEnabled="False"/>
+                <CheckBox  Margin="2" IsChecked="{Binding Watched}" IsEnabled="False">
+                  <fa:ImageAwesome Height="20" Icon="Eye" Foreground="{StaticResource AccentBaseColorBrush}"/>
+                </CheckBox>
                 <Button Margin="2" Command="{Binding DataContext.PlayCommand, RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType=Window}}" CommandParameter="{Binding}">
                   <fa:ImageAwesome Height="20" Icon="Eye" Foreground="{StaticResource AccentBaseColorBrush}"/>
                 </Button>
               </StackPanel>
               <StackPanel HorizontalAlignment="Center" Visibility="{Binding IsChecked ,ElementName=EditButton ,Converter={StaticResource BoolToVisibilitySharedConverter}}">
                 <TextBox Margin="2" Text="{Binding Name}" mahapps:TextBoxHelper.Watermark="Titre"/>
-                <TextBox Margin="2" Text="{Binding Duration}" mahapps:TextBoxHelper.Watermark="Durée"/>
-                <!--<TextBox Margin="2" Text="{Binding ReleaseDate}" mahapps:TextBoxHelper.Watermark="Date de sortie"/>-->
-                <mahapps:DateTimePicker SelectedDate="{Binding ReleaseDate}" SelectedDateFormat="Short"/>
+                <TextBox Margin="2" Text="{Binding Duration}" mahapps:TextBoxHelper.Watermark="Durée HH:MM:SS"/>
+                <Label Margin="2" Content="Date de sortie :"/>
+                <mahapps:DateTimePicker Margin="2" SelectedDate="{Binding ReleaseDate}" SelectedDateFormat="Short"/>
                 <TextBox Margin="2" Text="{Binding Score}" mahapps:TextBoxHelper.Watermark="Note"/>
                 <TextBox Margin="2" Text="{Binding File}" mahapps:TextBoxHelper.Watermark="Fichier"/>
-                <ComboBox Margin="2" SelectedItem="{Binding Genre.Name}" ItemsSource="{Binding DataContext.ViewModelFilmGenre.ItemsSource, RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType=Window}}" DisplayMemberPath="Name"/>
-                <CheckBox Margin="2" IsChecked="{Binding Watched}"/>
+                <ComboBox Margin="2" SelectedItem="{Binding Genre}" ItemsSource="{Binding DataContext.ViewModelFilmGenre.ItemsSource, RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType=Grid}}" DisplayMemberPath="Name"/>
+                <CheckBox Margin="2" IsChecked="{Binding Watched}">
+                  <fa:ImageAwesome Height="20" Icon="Eye" Foreground="{StaticResource AccentBaseColorBrush}"/>
+                </CheckBox>
               </StackPanel>
               <ToggleButton Margin="2" Grid.Row="1" x:Name="EditButton">
                 <fa:ImageAwesome Icon="Pencil" Height="20" Foreground="{StaticResource AccentBaseColorBrush}"/>
