@@ -134,9 +134,8 @@ namespace GestionFilms.Client.ViewModels
         protected override void AddItem_Execute(object parameter)
         {
             base.AddItem_Execute(parameter);
-
-            this.SelectedItem.Name = "Nouveau film";
-            this.SelectedItem.File = "test dc file";
+            
+            this.SelectedItem.Watched = false;
 
         }
 

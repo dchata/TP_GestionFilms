@@ -17,12 +17,11 @@
   
   <Grid>
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"/>
       <RowDefinition Height="80"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <Grid Grid.Row="1" Background="LightGray">
+    <Grid Grid.Row="0" Background="LightGray">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto"/>
         <ColumnDefinition Width="*"/>
@@ -39,18 +38,18 @@
       <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding SelectedViewModel.SaveCommand}" Visibility="{Binding SelectedViewModel.AddItemCommand, Converter={StaticResource ReferenceToVisibilitySharedConverter}, FallbackValue=Collapsed}">
         <fa:ImageAwesome Icon="Save" Height="50" Width="50"  Foreground="{StaticResource AccentBaseColorBrush}"/>
       </Button>
-      <Button Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding SelectedViewModel.AddItemCommand}" Visibility="{Binding SelectedViewModel.AddItemCommand, Converter={StaticResource ReferenceToVisibilitySharedConverter}, FallbackValue=Collapsed}">
+      <Button Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding SelectedViewModel.AddItemCommand}" Visibility="{Binding SelectedViewModel.AddItemCommand, Converter={StaticResource ReferenceToVisibilitySharedConverter}, FallbackValue=Collapsed}">
         <fa:ImageAwesome Icon="Plus" Height="50" Width="50"  Foreground="{StaticResource AccentBaseColorBrush}"/>
       </Button>
-      <Button Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding SelectedViewModel.RefreshCommand}" Visibility="{Binding SelectedViewModel.AddItemCommand, Converter={StaticResource ReferenceToVisibilitySharedConverter}, FallbackValue=Collapsed}">
+      <!--<Button Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding SelectedViewModel.RefreshCommand}" Visibility="{Binding SelectedViewModel.AddItemCommand, Converter={StaticResource ReferenceToVisibilitySharedConverter}, FallbackValue=Collapsed}">
         <fa:ImageAwesome Icon="Refresh" Height="50" Width="50"  Foreground="{StaticResource AccentBaseColorBrush}"/>
-      </Button>
+      </Button>-->
       <Button Grid.Column="7" Command="{Binding ExitCommand}" Margin="5">
         <fa:ImageAwesome Icon="PowerOff" Height="48" Width="48" Foreground="{StaticResource AccentBaseColorBrush}"/>
       </Button>
     </Grid>
 
-    <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}">
+    <ContentControl Grid.Row="1" Content="{Binding SelectedViewModel}">
       <ContentControl.ContentTemplateSelector>
         <templateselectors:ViewModelTemplateSelector/>
       </ContentControl.ContentTemplateSelector>

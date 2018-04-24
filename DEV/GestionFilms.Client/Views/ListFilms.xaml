@@ -84,7 +84,8 @@
               <StackPanel HorizontalAlignment="Center" Visibility="{Binding IsChecked ,ElementName=EditButton ,Converter={StaticResource BoolToVisibilitySharedConverter}}">
                 <TextBox Margin="2" Text="{Binding Name}" mahapps:TextBoxHelper.Watermark="Titre"/>
                 <TextBox Margin="2" Text="{Binding Duration}" mahapps:TextBoxHelper.Watermark="Durée"/>
-                <TextBox Margin="2" Text="{Binding ReleaseDate}" mahapps:TextBoxHelper.Watermark="Date de sortie"/>
+                <!--<TextBox Margin="2" Text="{Binding ReleaseDate}" mahapps:TextBoxHelper.Watermark="Date de sortie"/>-->
+                <mahapps:DateTimePicker SelectedDate="{Binding ReleaseDate}" SelectedDateFormat="Short"/>
                 <TextBox Margin="2" Text="{Binding Score}" mahapps:TextBoxHelper.Watermark="Note"/>
                 <TextBox Margin="2" Text="{Binding File}" mahapps:TextBoxHelper.Watermark="Fichier"/>
                 <ComboBox Margin="2" SelectedItem="{Binding Genre.Name}" ItemsSource="{Binding DataContext.ViewModelFilmGenre.ItemsSource, RelativeSource={RelativeSource Mode=FindAncestor ,AncestorType=Window}}" DisplayMemberPath="Name"/>
