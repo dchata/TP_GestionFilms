@@ -86,9 +86,9 @@ namespace MVVMLib.EF
             {
                 Entities.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString(), "Erreur");
+                MessageBox.Show("Les valeurs obligatoires : \n\nFilm : Titre, Fichier et genre \nGenre : Nom", "Erreur");
             }
         }
 
