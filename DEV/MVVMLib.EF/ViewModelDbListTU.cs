@@ -79,7 +79,7 @@ namespace MVVMLib.EF
         {
             base.Refresh_Execute(parameter);
 
-            RefreshDbSet(DbSet);
+            RefreshDbSet(this.DbSet);
         }
         #endregion
         #endregion
