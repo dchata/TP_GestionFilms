@@ -15,6 +15,7 @@ namespace GestionFilms.Client.ViewModels
         private DelegateCommand _NavigateCommand;
         private DelegateCommand _PlayCommand;
         DelegateCommand _ExitCommand;
+        static string[] mediaExtensions = {".WAV", ".MID", ".MIDI", ".WMA", ".AVI", ".MP4", ".DIVX", ".WMV"};
         #endregion Fields
 
         #region Properties
@@ -35,8 +36,9 @@ namespace GestionFilms.Client.ViewModels
         #endregion Constructors
 
         #region Methods
-        #region Navigate
+        #region Commands
 
+        #region Navigate
         private bool Navigate_CanExecute(object parameter) => parameter is ViewModelBase || (parameter is Type vmType && typeof(ViewModelBase).IsAssignableFrom(vmType));
 
         private void Navigate_Execute(object parameter)
@@ -54,22 +56,22 @@ namespace GestionFilms.Client.ViewModels
         #endregion
 
         #region Play
-        private void Play_Execute(object parameter)
+        private void Play_Execute(object parameter) //Commande pour lancer le lecteur de fichiers vidéo
         {
             if (parameter is Film film)
             {
-                //using (Process vlc = new Process())
+                //using (Process vlc = new Process()) //Utilisation de VLC
                 //{
                 //    vlc.StartInfo.FileName = film.File;
                 //    vlc.StartInfo.Arguments = "-vvv " + film.File;
                 //    vlc.Start();
                 //}
 
-                GestionFilm.MoviePlayer.MainWindow viewer = new GestionFilm.MoviePlayer.MainWindow(film.File);
+                GestionFilm.MoviePlayer.MainWindow viewer = new GestionFilm.MoviePlayer.MainWindow(film.File); //Utilisation du projet de lecteur de fichier vidéo
 
-                viewer.Show();
-                
-                film.Watched = true;
+                viewer.Show(); //affichage de la MainWindow du projet GestionFilm.MoviePlayer
+
+                film.Watched = true; //On passe la film au statut 'Vu'
             }
         }
 
@@ -77,7 +79,7 @@ namespace GestionFilms.Client.ViewModels
         {
             if (parameter is Film film)
             {
-                if (File.Exists(film.File))
+                if (File.Exists(film.File) && IsMediaFile(film.File)) //On vérifie si le fichier existe et si c'est bien un fichier vidéo
                     return true;
                 else
                     return false;
@@ -97,6 +99,10 @@ namespace GestionFilms.Client.ViewModels
                 SelectedItem = viewModel;
             }
         }
+        #endregion
+        #endregion
+        #region Verification File Extension
+        static bool IsMediaFile(string file) => -1 != Array.IndexOf(mediaExtensions, Path.GetExtension(file).ToUpperInvariant()); //on vérifie si l'extension du fichier fait partie des extensions autorisées
         #endregion
         #endregion Methods
     }
