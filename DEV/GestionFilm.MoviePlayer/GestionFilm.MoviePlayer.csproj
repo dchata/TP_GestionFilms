@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E09E33CD-D3D3-462E-AF8C-E6304BDDB2C1}</ProjectGuid>
+    <ProjectGuid>{7794ECEE-BCF2-42B3-ACE1-F14A2FD8A1F2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>GestionFilms.Client</RootNamespace>
-    <AssemblyName>GestionFilms.Client</AssemblyName>
+    <RootNamespace>GestionFilm.MoviePlayer</RootNamespace>
+    <AssemblyName>GestionFilm.MoviePlayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,17 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>netflix.ico</ApplicationIcon>
+    <ApplicationIcon>viewer.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
@@ -53,7 +47,6 @@
       <HintPath>..\packages\MahApps.Metro.1.6.1\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -75,28 +68,8 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
-    <Compile Include="Converters\ReferenceToVisibilityConverter.cs" />
-    <Compile Include="TemplateSelector\ViewModelTemplateSelector.cs" />
-    <Compile Include="ViewModels\ViewModelFilmGenre.cs" />
-    <Compile Include="ViewModels\ViewModelFilms.cs" />
-    <Compile Include="ViewModels\ViewModelHome.cs" />
     <Compile Include="ViewModels\ViewModelMain.cs" />
-    <Compile Include="Views\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ListFilmGenres.xaml.cs">
-      <DependentUpon>ListFilmGenres.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ListFilms.xaml.cs">
-      <DependentUpon>ListFilms.xaml</DependentUpon>
-    </Compile>
-    <Page Include="DataTemplates.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,18 +82,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Home.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ListFilmGenres.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ListFilms.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -149,42 +110,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\GestionFilm.MoviePlayer\GestionFilm.MoviePlayer.csproj">
-      <Project>{7794ecee-bcf2-42b3-ace1-f14a2fd8a1f2}</Project>
-      <Name>GestionFilm.MoviePlayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GestionFilms.DBLib\GestionFilms.DBLib.csproj">
-      <Project>{5213cc99-3f8f-48db-a4d1-250dba8aceb5}</Project>
-      <Name>GestionFilms.DBLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MVVLib.WPF\MVVMLib.WPF.csproj">
-      <Project>{da243fba-b645-4bfb-ae5b-d800df79c390}</Project>
-      <Name>MVVMLib.WPF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MVVMLib.EF\MVVMLib.EF.csproj">
-      <Project>{22e32908-a2f5-413a-b65a-2e2e529857ab}</Project>
-      <Name>MVVMLib.EF</Name>
-    </ProjectReference>
+    <Resource Include="viewer.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\MVVMLib\MVVMLib.Core.csproj">
-      <Project>{4ee5683c-70f5-485d-8030-051dc9d8c9f3}</Project>
+      <Project>{4EE5683C-70F5-485D-8030-051DC9D8C9F3}</Project>
       <Name>MVVMLib.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="netflix.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -58,13 +58,17 @@ namespace GestionFilms.Client.ViewModels
         {
             if (parameter is Film film)
             {
-                using (Process vlc = new Process())
-                {
-                    vlc.StartInfo.FileName = film.File;
-                    vlc.StartInfo.Arguments = "-vvv " + film.File;
-                    vlc.Start();
-                }
+                //using (Process vlc = new Process())
+                //{
+                //    vlc.StartInfo.FileName = film.File;
+                //    vlc.StartInfo.Arguments = "-vvv " + film.File;
+                //    vlc.Start();
+                //}
 
+                GestionFilm.MoviePlayer.MainWindow viewer = new GestionFilm.MoviePlayer.MainWindow(film.File);
+
+                viewer.Show();
+                
                 film.Watched = true;
             }
         }
