@@ -15,7 +15,7 @@ namespace GestionFilms.Client.ViewModels
         private DelegateCommand _NavigateCommand;
         private DelegateCommand _PlayCommand;
         DelegateCommand _ExitCommand;
-        static string[] mediaExtensions = {".WAV", ".MID", ".MIDI", ".WMA", ".AVI", ".MP4", ".DIVX", ".WMV"};
+        static string[] mediaExtensions = {".AVI", ".MP4", ".DIVX", ".WMV"}; //liste des extensions acceptées
         #endregion Fields
 
         #region Properties
