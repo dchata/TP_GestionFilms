@@ -70,7 +70,7 @@ namespace MVVMLib.EF
             {
                 DbEntityEntry<IEntity> entry = Entities.Entry<IEntity>(entity);
 
-                if (entry.State == EntityState.Unchanged)
+                if (entry.State == EntityState.Modified)
                     entry.Reload();
             }
         }
