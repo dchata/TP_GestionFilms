@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace GestionFilm.MoviePlayer.ViewModels
@@ -32,6 +33,8 @@ namespace GestionFilm.MoviePlayer.ViewModels
             _PlayCommand = new DelegateCommand(Play_Execute, Play_CanExecute); //Commande de lecture
             _PauseCommand = new DelegateCommand(Pause_Execute, Pause_CanExecute); //Commande de mise en pause
             _StopCommand = new DelegateCommand(Stop_Execute, Stop_CanExecute); //Commande d'arrêt
+
+            MessageBox.Show("Cliquez sur Play pour démarrer la lecture du fichier vidéo !");
         }
         #endregion Constructors
 
