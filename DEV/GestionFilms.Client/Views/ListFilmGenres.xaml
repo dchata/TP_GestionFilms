@@ -36,7 +36,7 @@
               <TextBox Text="{Binding Name}"/>
             </StackPanel>
 
-            <ToggleButton x:Name="EditButton"  Margin="5" Grid.Row="1" Grid.Column="0">
+            <ToggleButton x:Name="EditButton" Width="30" Height="10"  Margin="5" Grid.Row="1" Grid.Column="0">
               <fa:ImageAwesome Icon="Pencil" Height="10" Foreground="{StaticResource AccentBaseColorBrush}"/>
             </ToggleButton>
 

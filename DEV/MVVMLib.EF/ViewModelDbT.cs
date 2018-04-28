@@ -88,7 +88,7 @@ namespace MVVMLib.EF
             }
             catch (Exception)
             {
-                MessageBox.Show("Les valeurs obligatoires : \n\nFilm : Titre, Fichier et genre \nGenre : Nom", "Erreur");
+                MessageBox.Show("Les valeurs obligatoires : \n\nFilm : Titre, Fichier et genre \nGenre : Nom \n\nImpossible de supprimer un genre si un film en fait partie", "Erreur");
             }
         }
 
