@@ -24,8 +24,7 @@
 
       <converters:BoolToVisibilityConverter       x:Key="BoolToVisibilitySharedConverter"/>
       <converters:ReferenceToVisibilityConverter  x:Key="ReferenceToVisibilitySharedConverter"/>
-
+      
     </ResourceDictionary>
-
   </Application.Resources>
 </Application>

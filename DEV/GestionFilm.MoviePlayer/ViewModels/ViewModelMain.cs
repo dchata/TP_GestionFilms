@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace GestionFilm.MoviePlayer.ViewModels
+namespace GestionFilms.MoviePlayer.ViewModels
 {
     public class ViewModelMain
     {

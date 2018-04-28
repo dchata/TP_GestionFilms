@@ -67,7 +67,7 @@ namespace GestionFilms.Client.ViewModels
                 //    vlc.Start();
                 //}
 
-                GestionFilm.MoviePlayer.MainWindow viewer = new GestionFilm.MoviePlayer.MainWindow(film.File); //Utilisation du projet de lecteur de fichier vidéo
+                MoviePlayer.MainWindow viewer = new MoviePlayer.MainWindow(film.File); //Utilisation du projet de lecteur de fichier vidéo
 
                 viewer.Show(); //affichage de la MainWindow du projet GestionFilm.MoviePlayer
 

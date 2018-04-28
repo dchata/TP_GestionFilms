@@ -1,4 +1,4 @@
-﻿using GestionFilm.MoviePlayer.ViewModels;
+﻿using GestionFilms.MoviePlayer.ViewModels;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GestionFilm.MoviePlayer
+namespace GestionFilms.MoviePlayer
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml

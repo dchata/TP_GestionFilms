@@ -151,9 +151,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\GestionFilm.MoviePlayer\GestionFilm.MoviePlayer.csproj">
+    <ProjectReference Include="..\GestionFilm.MoviePlayer\GestionFilms.MoviePlayer.csproj">
       <Project>{7794ecee-bcf2-42b3-ace1-f14a2fd8a1f2}</Project>
-      <Name>GestionFilm.MoviePlayer</Name>
+      <Name>GestionFilms.MoviePlayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\GestionFilms.DBLib\GestionFilms.DBLib.csproj">
       <Project>{5213cc99-3f8f-48db-a4d1-250dba8aceb5}</Project>

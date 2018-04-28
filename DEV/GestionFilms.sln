@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMLib.WPF", "MVVLib.WPF\M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMLib.EF", "MVVMLib.EF\MVVMLib.EF.csproj", "{22E32908-A2F5-413A-B65A-2E2E529857AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFilm.MoviePlayer", "GestionFilm.MoviePlayer\GestionFilm.MoviePlayer.csproj", "{7794ECEE-BCF2-42B3-ACE1-F14A2FD8A1F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFilms.MoviePlayer", "GestionFilm.MoviePlayer\GestionFilms.MoviePlayer.csproj", "{7794ECEE-BCF2-42B3-ACE1-F14A2FD8A1F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
